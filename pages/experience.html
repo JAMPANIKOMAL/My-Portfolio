@@ -3,42 +3,44 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>MyPortfolio - Achievements</title>
+    <title>MyPortfolio - Experience</title>
     <link rel="stylesheet" href="../style.css">
     <script src="../jquery-3.7.0.min.js"></script> 
     <style>
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         
-        /* Mobile-specific fixes for achievements page */
+        /* Mobile-specific fixes for experience page */
         @media (max-width: 768px) {
-            .achievement-row {
+            .experience-row {
                 flex-direction: column !important;
                 align-items: stretch !important;
                 gap: 15px !important;
                 padding: 20px !important;
             }
             
-            .achievement-info {
+            .exp-info {
                 width: 100% !important;
                 margin-bottom: 10px !important;
-                max-width: 100% !important;
             }
             
-            .achievement-info h3 {
+            .exp-info h3 {
                 font-size: 1.2rem !important;
                 margin-bottom: 8px !important;
                 line-height: 1.3 !important;
             }
             
-            .achievement-info .description {
+            .exp-info .organization {
+                font-size: 1rem !important;
+                margin-bottom: 8px !important;
+            }
+            
+            .exp-info .details {
                 font-size: 0.95rem !important;
                 line-height: 1.5 !important;
                 margin-bottom: 0 !important;
-                word-wrap: break-word !important;
-                hyphens: auto !important;
             }
             
-            .date-badge {
+            .duration-badge {
                 align-self: flex-end !important;
                 font-size: 0.85rem !important;
                 padding: 6px 10px !important;
@@ -73,23 +75,70 @@
         <nav class="main-navigation card">
             <a href="../index.html" class="nav-button btn-main btn-blue">Home</a>
             <a href="education.html" class="nav-button btn-main btn-blue">Education</a>
-            <a href="experience.html" class="nav-button btn-main btn-blue">Experience</a>
+            <span class="nav-button btn-main btn-blue current-page">Experience</span>
             <a href="projects.html" class="nav-button btn-main btn-blue">Projects</a>
             <a href="certifications.html" class="nav-button btn-main btn-blue">Certifications</a>
             <a href="social_handles.html" class="nav-button btn-main btn-blue">Social Handles</a>
-            <span class="nav-button btn-main btn-blue current-page">Achievements</span>
+            <a href="achievements.html" class="nav-button btn-main btn-blue">Achievements</a>
             <button class="nav-show-more-btn" id="navShowMoreBtn">Show More</button>
         </nav>
 
-        <section class="achievements-section card">
-            <h2>Achievements</h2>
-            <div class="achievement-list">
-                <div class="achievement-row">
-                    <div class="achievement-info">
-                        <h3>SIH</h3>
-                        <p class="description">Participated in Smart India Hackathon, a nationwide initiative to provide students a platform to solve some of the pressing problems we face in our daily lives.</p>
+        <section class="experience-section card">
+            <h2>Experience</h2>
+            <div class="experience-list">
+                <div class="experience-row">
+                    <div class="exp-info">
+                        <h3>CRIMATON</h3>
+                        <p class="organization">Cybersecurity R&D Intern</p>
+                        <p class="details">Conducted research and development in cybersecurity technologies and threat analysis.</p>
                     </div>
-                    <span class="date-badge">2024</span>
+                    <span class="duration-badge">Apr 2025 - Jun 2025</span>
+                </div>
+                <div class="experience-row">
+                    <div class="exp-info">
+                        <h3>The Cyber Alliance</h3>
+                        <div class="role-item">
+                            <h4>Lead</h4>
+                            <p class="role-details">Leading cybersecurity initiatives and coordinating team activities for various security projects.</p>
+                            <span class="role-duration">Jan 2025 - Present</span>
+                        </div>
+                        <div class="role-item">
+                            <h4>Member</h4>
+                            <p class="role-details">Active member contributing to cybersecurity research and community building activities.</p>
+                            <span class="role-duration">Sep 2023 - Dec 2024</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-row">
+                    <div class="exp-info">
+                        <h3>IncuBeta RRU</h3>
+                        <div class="role-item">
+                            <h4>Market Research Lead</h4>
+                            <p class="role-details">Leading market research initiatives and analyzing industry trends for startup development.</p>
+                            <span class="role-duration">Aug 2024 - Present</span>
+                        </div>
+                        <div class="role-item">
+                            <h4>Member</h4>
+                            <p class="role-details">Participated in startup incubation programs and entrepreneurship development activities.</p>
+                            <span class="role-duration">Sep 2023 - Aug 2024</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-row">
+                    <div class="exp-info">
+                        <h3>Google Developer Student Clubs RRU Gandhinagar</h3>
+                        <p class="organization">Member</p>
+                        <p class="details">Active participant in developer community events and technical workshops.</p>
+                    </div>
+                    <span class="duration-badge">Sep 2023 - Present</span>
+                </div>
+                <div class="experience-row">
+                    <div class="exp-info">
+                        <h3>E-Cell, IIT Bombay</h3>
+                        <p class="organization">Campus Ambassador</p>
+                        <p class="details">Promoted entrepreneurship activities and organized startup-related events on campus.</p>
+                    </div>
+                    <span class="duration-badge">Jul 2024 - Dec 2024</span>
                 </div>
             </div>
         </section>
@@ -136,3 +185,8 @@
 </script>
 </body>
 </html>
+
+
+
+
+

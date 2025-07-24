@@ -211,7 +211,7 @@ body.light-mode .slider:before { background-color: var(--text-muted-light); }
     padding: 20px; 
     border-radius: 12px; 
     width: 100%;
-    max-width: 900px; /* Reverted back to original */
+    max-width: 1000px; /* Decreased from 1100px to 1000px */
     box-sizing: border-box;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 5px 15px var(--shadow-dark); 
@@ -273,7 +273,7 @@ body.light-mode .tagline {
     gap: 15px;
     padding: 20px;
     width: 100%;
-    max-width: 900px; /* Reverted back to original */
+    max-width: 1000px; /* Decreased from 1100px to 1000px */
 }
 .nav-button {
     flex: 0 1 auto; /* Changed from flex: 1 to allow natural sizing */
@@ -1174,3 +1174,183 @@ body.light-mode .handle-info .platform {
     color: var(--text-muted-light);
 }
 
+/* === Experience List Styles === */
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.experience-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: var(--card-dark);
+    border: 1px solid var(--border-dark);
+    padding: 25px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .experience-row {
+    background: var(--card-light);
+    border-color: var(--border-light);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.experience-row:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(88, 166, 255, 0.15);
+}
+
+.exp-info {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.exp-info h3 {
+    color: var(--primary);
+    margin: 0 0 12px 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.exp-info .organization {
+    color: #7db3ff;
+    font-style: normal;
+    margin: 0 0 8px 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+body.light-mode .exp-info .organization {
+    color: #4a90e2;
+}
+
+.exp-info .details {
+    color: var(--text-muted-dark);
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+body.light-mode .exp-info .details {
+    color: var(--text-muted-light);
+}
+
+.role-item {
+    margin-bottom: 20px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-dark);
+    display: grid;
+    grid-template-columns: 200px 1fr 150px;
+    gap: 20px;
+    align-items: start;
+}
+
+.role-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+body.light-mode .role-item {
+    border-bottom-color: var(--border-light);
+}
+
+.role-item h4 {
+    color: #7db3ff;
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    align-self: center;
+}
+
+body.light-mode .role-item h4 {
+    color: #4a90e2;
+}
+
+.role-details {
+    color: var(--text-muted-dark);
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    align-self: start;
+}
+
+body.light-mode .role-details {
+    color: var(--text-muted-light);
+}
+
+.role-duration {
+    background: var(--primary);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(88, 166, 255, 0.3);
+    justify-self: center;
+    align-self: start;
+    width: 130px;
+}
+
+/* For single role experiences, maintain flex layout */
+.experience-row:has(.organization) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.experience-row:has(.organization) .duration-badge {
+    width: 130px;
+    text-align: center;
+    align-self: center;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .experience-row {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 15px !important;
+        padding: 20px !important;
+    }
+    
+    .exp-info {
+        width: 100% !important;
+        text-align: left !important;
+    }
+    
+    .exp-info .details {
+        margin-bottom: 15px !important;
+        text-align: justify !important;
+    }
+    
+    .duration-badge {
+        align-self: center !important;
+        width: auto !important;
+        min-width: 120px !important;
+    }
+    
+    .role-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        text-align: left;
+    }
+    
+    .role-details {
+        margin-bottom: 15px !important;
+        text-align: justify !important;
+    }
+    
+    .role-duration {
+        justify-self: center;
+        width: auto;
+        min-width: 120px;
+    }
+}
