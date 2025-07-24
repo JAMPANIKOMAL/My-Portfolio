@@ -8,6 +8,47 @@
     <script src="../jquery-3.7.0.min.js"></script> 
     <style>
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        /* Mobile-specific fixes for education page */
+        @media (max-width: 768px) {
+            .education-row {
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 15px !important;
+                padding: 20px !important;
+            }
+            
+            .edu-info {
+                width: 100% !important;
+                margin-bottom: 10px !important;
+            }
+            
+            .edu-info h3 {
+                font-size: 1.2rem !important;
+                margin-bottom: 8px !important;
+                line-height: 1.3 !important;
+            }
+            
+            .edu-info .institution {
+                font-size: 1rem !important;
+                margin-bottom: 8px !important;
+            }
+            
+            .edu-info .details {
+                font-size: 0.95rem !important;
+                line-height: 1.5 !important;
+                margin-bottom: 0 !important;
+            }
+            
+            .duration-badge {
+                align-self: flex-end !important;
+                margin-top: 10px !important;
+                padding: 8px 12px !important;
+                font-size: 0.9rem !important;
+                width: fit-content !important;
+                margin-left: auto !important;
+            }
+        }
     </style>
 </head>
 <body class="dark-mode">

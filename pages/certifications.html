@@ -8,6 +8,17 @@
     <script src="../jquery-3.7.0.min.js"></script> 
     <style>
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        /* Mobile-specific fixes for certifications page */
+        @media (max-width: 768px) {
+            .certification-row .btn-main {
+                width: 100% !important;
+                max-width: 200px !important;
+                margin: 0 auto !important;
+                align-self: center !important;
+                box-sizing: border-box !important;
+            }
+        }
     </style>
 </head>
 <body class="dark-mode">
