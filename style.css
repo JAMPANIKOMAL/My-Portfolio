@@ -532,3 +532,53 @@ body.light-mode .achievement-item .date {
     background-color: var(--primary);
     color: white;
 }
+
+/* === Social Handles List Styles === */
+.social-handles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-handle-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--card-dark);
+    border: 1px solid var(--border-dark);
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+body.light-mode .social-handle-row {
+    background: var(--card-light);
+    border-color: var(--border-light);
+}
+
+.social-handle-row:hover {
+    transform: translateY(-2px);
+}
+
+.handle-info {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.handle-info h3 {
+    color: var(--primary);
+    margin: 0 0 5px 0;
+    font-size: 1.2rem;
+}
+
+.handle-info .platform {
+    color: var(--text-muted-dark);
+    font-style: italic;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+body.light-mode .handle-info .platform {
+    color: var(--text-muted-light);
+}

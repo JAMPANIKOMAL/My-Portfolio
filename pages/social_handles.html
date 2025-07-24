@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>MyPortfolio - Social Handles</title>
+    <link rel="stylesheet" href="../style.css"> <!-- Link to parent directory's style.css -->
+    <script src="../jquery-3.7.0.min.js"></script> 
+    <style>
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body class="dark-mode">
+<div class="container">
+    <div class="top-bar">
+        <div class="logo-title">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-icon">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="#58a6ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="12" cy="7" r="4" stroke="#58a6ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h1 id="dashboardTitle">My Portfolio</h1>
+        </div>
+        
+        <div class="header-controls">
+            <div class="toggle-switch">
+                <span>Light</span>
+                <label class="switch">
+                    <input type="checkbox" id="themeToggle" checked>
+                    <span class="slider"></span>
+                </label>
+                <span>Dark</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content-area">
+        <nav class="main-navigation card">
+            <a href="../index.html" class="nav-button btn-main btn-blue">Home</a>
+            <a href="education.html" class="nav-button btn-main btn-blue">Education</a>
+            <a href="projects.html" class="nav-button btn-main btn-blue">Projects</a>
+            <a href="certifications.html" class="nav-button btn-main btn-blue">Certifications</a>
+            <span class="nav-button btn-main btn-blue current-page">Social Handles</span>
+            <a href="achievements.html" class="nav-button btn-main btn-blue">Achievements</a>
+        </nav>
+
+        <section class="social-handles-section card">
+            <h2>Connect with Me!</h2>
+            <div class="social-handles-list">
+                <div class="social-handle-row">
+                    <div class="handle-info">
+                        <h3>LinkedIn</h3>
+                        <p class="platform">Professional Network</p>
+                    </div>
+                    <a href="https://linkedin.com/in/jampanikomal" target="_blank" class="btn-main btn-blue">Visit Profile</a>
+                </div>
+                <div class="social-handle-row">
+                    <div class="handle-info">
+                        <h3>GitHub</h3>
+                        <p class="platform">Code Repository</p>
+                    </div>
+                    <a href="https://github.com/JAMPANIKOMAL" target="_blank" class="btn-main btn-blue">Visit Profile</a>
+                </div>
+                <div class="social-handle-row">
+                    <div class="handle-info">
+                        <h3>Google Developers</h3>
+                        <p class="platform">Developer Profile</p>
+                    </div>
+                    <a href="https://developers.google.com/profile/u/JAMPANIKOMAL?hl=en&utm_source=codelabs.developers.google.com" target="_blank" class="btn-main btn-blue">Visit Profile</a>
+                </div>
+                <div class="social-handle-row">
+                    <div class="handle-info">
+                        <h3>Google Cloud Skills Boost</h3>
+                        <p class="platform">Cloud Learning Platform</p>
+                    </div>
+                    <a href="https://www.cloudskillsboost.google/public_profiles/f8bfc8b5-fa9f-4de3-8be8-ee0dd0817420" target="_blank" class="btn-main btn-blue">Visit Profile</a>
+                </div>
+                <div class="social-handle-row">
+                    <div class="handle-info">
+                        <h3>Google for Developers</h3>
+                        <p class="platform">Developer Showcase</p>
+                    </div>
+                    <a href="https://g.dev/JAMPANIKOMAL" target="_blank" class="btn-main btn-blue">Visit Profile</a>
+                </div>
+                <div class="social-handle-row">
+                    <div class="handle-info">
+                        <h3>TryHackMe</h3>
+                        <p class="platform">Cybersecurity Learning</p>
+                    </div>
+                    <a href="https://tryhackme.com/p/JAMPANIKOMAL" target="_blank" class="btn-main btn-blue">Visit Profile</a>
+                </div>
+                <div class="social-handle-row">
+                    <div class="handle-info">
+                        <h3>Medium</h3>
+                        <p class="platform">Technical Writing</p>
+                    </div>
+                    <a href="https://jampanikomal.medium.com/" target="_blank" class="btn-main btn-blue">Visit Profile</a>
+                </div>
+                <div class="social-handle-row">
+                    <div class="handle-info">
+                        <h3>Stack Overflow</h3>
+                        <p class="platform">Developer Community</p>
+                    </div>
+                    <a href="https://stackoverflow.com/users/23472872/jampanikomal" target="_blank" class="btn-main btn-blue">Visit Profile</a>
+                </div>
+                <div class="social-handle-row">
+                    <div class="handle-info">
+                        <h3>Twitter</h3>
+                        <p class="platform">Social Media</p>
+                    </div>
+                    <a href="https://twitter.com/jampani_komal" target="_blank" class="btn-main btn-blue">Visit Profile</a>
+                </div>
+                <div class="social-handle-row">
+                    <div class="handle-info">
+                        <h3>Facebook</h3>
+                        <p class="platform">Social Media</p>
+                    </div>
+                    <a href="https://www.facebook.com/jampanikomal" target="_blank" class="btn-main btn-blue">Visit Profile</a>
+                </div>
+                <div class="social-handle-row">
+                    <div class="handle-info">
+                        <h3>Discord</h3>
+                        <p class="platform">Community Platform</p>
+                    </div>
+                    <a href="https://discordapp.com/users/jampanikomal" target="_blank" class="btn-main btn-blue">Visit Profile</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        const applyTheme = (theme) => {
+            $('body').removeClass('dark-mode light-mode').addClass(theme);
+            localStorage.setItem('theme', theme);
+        };
+
+        $('#themeToggle').on('change', function() {
+            if ($(this).is(':checked')) {
+                applyTheme('dark-mode');
+            } else {
+                applyTheme('light-mode');
+            }
+        });
+
+        if (localStorage.getItem('theme') === 'light-mode') {
+            $('#themeToggle').prop('checked', false);
+            applyTheme('light-mode');
+        } else {
+            $('#themeToggle').prop('checked', true);
+            applyTheme('dark-mode');
+        }
+    });
+</script>
+</body>
+</html>
