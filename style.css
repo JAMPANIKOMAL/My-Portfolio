@@ -137,7 +137,7 @@ body.light-mode .top-bar {
 }
 
 .btn-blue:hover {
-    background-color: #4a90e2;
+    background-color: var(--primary);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px var(--button-shadow-dark);
 }
