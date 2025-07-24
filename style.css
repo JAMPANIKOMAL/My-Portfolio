@@ -199,7 +199,7 @@ body.light-mode .slider:before { background-color: var(--text-muted-light); }
     padding: 20px; 
     border-radius: 12px; 
     width: 100%;
-    max-width: 1100px; /* Increased from 900px */
+    max-width: 900px; 
     box-sizing: border-box;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 5px 15px var(--shadow-dark); 
@@ -255,61 +255,17 @@ body.light-mode .tagline {
 
 /* Main Navigation */
 .main-navigation {
-    display: flex !important;
-    flex-wrap: nowrap !important;
+    display: flex;
+    flex-wrap: nowrap;
     justify-content: center;
-    gap: 4px;
-    padding: 15px 5px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    gap: 15px;
+    padding: 20px;
 }
-
-.main-navigation::-webkit-scrollbar {
-    display: none;
-}
-
 .nav-button {
-    flex: 0 0 auto !important;
-    flex-shrink: 0 !important;
-    min-width: 90px !important;
-    max-width: 110px;
-    padding: 8px 6px !important;
-    font-size: 0.8rem !important;
-    white-space: nowrap;
-    text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* Responsive navigation adjustments */
-@media (max-width: 1200px) {
-    .nav-button {
-        min-width: 85px !important;
-        padding: 8px 5px !important;
-        font-size: 0.75rem !important;
-    }
-}
-
-@media (max-width: 768px) {
-    .main-navigation {
-        gap: 2px;
-        padding: 15px 2px;
-    }
-    .nav-button {
-        min-width: 75px !important;
-        padding: 6px 4px !important;
-        font-size: 0.7rem !important;
-    }
-}
-
-@media (max-width: 480px) {
-    .nav-button {
-        min-width: 65px !important;
-        padding: 6px 3px !important;
-        font-size: 0.65rem !important;
-    }
+    flex-grow: 1;
+    max-width: 160px; /* Increased since we removed blog button */
+    padding: 12px 15px;
+    font-size: 1.05rem;
 }
 
 /* About Me Section */
@@ -400,30 +356,6 @@ body.light-mode .modal-header { border-color: var(--border-light); }
     .modal-content {
         width: 90%;
         margin: 5% auto;
-    }
-}
-
-@media (max-width: 768px) {
-    .main-navigation {
-        gap: 5px; /* Even smaller gap on mobile */
-        padding: 15px 10px;
-    }
-    .nav-button {
-        min-width: 100px; /* Smaller buttons on mobile */
-        padding: 8px 10px;
-        font-size: 0.85rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .main-navigation {
-        gap: 3px;
-        padding: 15px 5px;
-    }
-    .nav-button {
-        min-width: 80px;
-        padding: 8px 6px;
-        font-size: 0.8rem;
     }
 }
 
