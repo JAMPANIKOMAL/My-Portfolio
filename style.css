@@ -184,13 +184,14 @@ body.light-mode .card:hover { box-shadow: 0 10px 20px var(--shadow-light); }
     color: var(--primary); 
 }
 
-/* Portfolio Header */
+/* Portfolio Header (no card styling) */
 .portfolio-header {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
     padding-bottom: 30px; /* More space below header */
+    /* Removed background, border, shadow of a card */
 }
 .profile-pic {
     width: 150px;
@@ -213,7 +214,7 @@ body.light-mode .card:hover { box-shadow: 0 10px 20px var(--shadow-light); }
 body.light-mode .name {
     color: var(--text-light);
 }
-.tagline {
+.tagline { /* This class is now unused in HTML, but keeping style for reference */
     font-size: 1.2rem;
     color: var(--text-muted-dark);
     margin: 0;
