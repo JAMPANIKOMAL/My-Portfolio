@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>MyPortfolio - Achievements</title>
+    <link rel="stylesheet" href="../style.css"> <!-- Link to parent directory's style.css -->
+    <script src="../jquery-3.7.0.min.js"></script> 
+    <style>
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body class="dark-mode">
+<div class="container">
+    <div class="top-bar">
+        <div class="logo-title">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-icon">
+                <path d="M16 20H8C6.89543 20 6 19.1046 6 18V6C6 4.89543 6.89543 4 8 4H16C17.1046 4 18 4.89543 18 6V18C18 19.1046 17.1046 20 16 20Z" stroke="#58a6ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 2V4" stroke="#58a6ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 20V22" stroke="#58a6ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M18 10H6" stroke="#58a6ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h1 id="dashboardTitle">MyPortfolio</h1>
+        </div>
+        
+        <div class="header-controls">
+            <div class="toggle-switch">
+                <span>Light</span>
+                <label class="switch">
+                    <input type="checkbox" id="themeToggle" checked>
+                    <span class="slider"></span>
+                </label>
+                <span>Dark</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content-area">
+        <section class="achievements-section card">
+            <h2>Achievements</h2>
+            <div class="achievement-item">
+                <h3>SIH Internal Hackathon</h3>
+                <p class="date">September 2024</p>
+                <p class="description">Participated in the Smart India Hackathon internal round, showcasing innovative solutions.</p>
+            </div>
+            <div class="achievement-item">
+                <h3>IEEE MYOSA '24 Finalist</h3>
+                <p class="date">Year 2024</p>
+                <p class="description">Recognized as a finalist in the IEEE MYOSA event.</p>
+            </div>
+            <div class="achievement-item">
+                <h3>SecOps CAP, CNSP | CC, ISC | Top 4% at THM</h3>
+                <p class="issuer">Various Certifications/Rankings</p>
+                <p class="description">Achieved significant milestones in security operations and penetration testing, including ranking in the top 4% on TryHackMe.</p>
+            </div>
+        </section>
+
+        <nav class="main-navigation card">
+            <a href="../index.html" class="nav-button btn-main btn-blue">Home</a>
+            <a href="education.html" class="nav-button btn-main btn-blue">Education</a>
+            <a href="projects.html" class="nav-button btn-main btn-blue">Projects</a>
+            <a href="certifications.html" class="nav-button btn-main btn-blue">Certifications</a>
+            <a href="social_media.html" class="nav-button btn-main btn-blue">Social Media Handles</a>
+        </nav>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        const applyTheme = (theme) => {
+            $('body').removeClass('dark-mode light-mode').addClass(theme);
+            localStorage.setItem('theme', theme);
+        };
+
+        $('#themeToggle').on('change', function() {
+            if ($(this).is(':checked')) {
+                applyTheme('dark-mode');
+            } else {
+                applyTheme('light-mode');
+            }
+        });
+
+        if (localStorage.getItem('theme') === 'light-mode') {
+            $('#themeToggle').prop('checked', false);
+            applyTheme('light-mode');
+        } else {
+            $('#themeToggle').prop('checked', true);
+            applyTheme('dark-mode');
+        }
+    });
+</script>
+</body>
+</html>
