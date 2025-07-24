@@ -582,3 +582,122 @@ body.light-mode .social-handle-row {
 body.light-mode .handle-info .platform {
     color: var(--text-muted-light);
 }
+
+/* === Education List Styles === */
+.education-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.education-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--card-dark);
+    border: 1px solid var(--border-dark);
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+body.light-mode .education-row {
+    background: var(--card-light);
+    border-color: var(--border-light);
+}
+
+.education-row:hover {
+    transform: translateY(-2px);
+}
+
+.edu-info {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.edu-info h3 {
+    color: var(--primary);
+    margin: 0 0 5px 0;
+    font-size: 1.2rem;
+}
+
+.edu-info .institution {
+    color: var(--text-muted-dark);
+    font-style: italic;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+body.light-mode .edu-info .institution {
+    color: var(--text-muted-light);
+}
+
+.duration-badge {
+    background: var(--primary);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* === Achievement List Styles === */
+.achievement-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.achievement-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--card-dark);
+    border: 1px solid var(--border-dark);
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+body.light-mode .achievement-row {
+    background: var(--card-light);
+    border-color: var(--border-light);
+}
+
+.achievement-row:hover {
+    transform: translateY(-2px);
+}
+
+.achievement-info {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.achievement-info h3 {
+    color: var(--primary);
+    margin: 0 0 8px 0;
+    font-size: 1.2rem;
+}
+
+.achievement-info .description {
+    color: var(--text-muted-dark);
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+body.light-mode .achievement-info .description {
+    color: var(--text-muted-light);
+}
+
+.date-badge {
+    background: var(--primary);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
