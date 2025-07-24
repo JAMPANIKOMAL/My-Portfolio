@@ -693,15 +693,15 @@ body.light-mode .achievement-item .date {
     color: white;
 }
 
-/* === Social Media List Styles === */
-.social-media-list {
+/* === Social Handles List Styles === */
+.social-handle-list {
     display: flex;
     flex-direction: column;
     gap: 15px;
     margin-top: 20px;
 }
 
-.social-media-row {
+.social-handle-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -712,34 +712,34 @@ body.light-mode .achievement-item .date {
     transition: transform 0.3s ease;
 }
 
-body.light-mode .social-media-row {
+body.light-mode .social-handle-row {
     background: var(--card-light);
     border-color: var(--border-light);
 }
 
-.social-media-row:hover {
+.social-handle-row:hover {
     transform: translateY(-2px);
 }
 
-.social-info {
+.handle-info {
     flex-grow: 1;
     text-align: left;
 }
 
-.social-info h3 {
+.handle-info h3 {
     color: var(--primary);
     margin: 0 0 5px 0;
     font-size: 1.2rem;
 }
 
-.social-info .platform {
+.handle-info .platform {
     color: var(--text-muted-dark);
     font-style: italic;
     margin: 0;
     font-size: 0.9rem;
 }
 
-body.light-mode .social-info .platform {
+body.light-mode .handle-info .platform {
     color: var(--text-muted-light);
 }
 
