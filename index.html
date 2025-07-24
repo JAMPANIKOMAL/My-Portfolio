@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>MyPortfolio - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery-3.7.0.min.js"></script> 
+    <style>
+        /* Add any specific animations if needed */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body class="dark-mode">
+<div class="container">
+    <div class="top-bar">
+        <div class="logo-title">
+            <!-- Portfolio Icon - Briefcase/Person SVG -->
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-icon">
+                <path d="M16 20H8C6.89543 20 6 19.1046 6 18V6C6 4.89543 6.89543 4 8 4H16C17.1046 4 18 4.89543 18 6V18C18 19.1046 17.1046 20 16 20Z" stroke="#58a6ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 2V4" stroke="#58a6ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 20V22" stroke="#58a6ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M18 10H6" stroke="#58a6ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h1 id="dashboardTitle">MyPortfolio</h1>
+        </div>
+        
+        <div class="header-controls">
+            <!-- Theme Toggle -->
+            <div class="toggle-switch">
+                <span>Light</span>
+                <label class="switch">
+                    <input type="checkbox" id="themeToggle" checked>
+                    <span class="slider"></span>
+                </label>
+                <span>Dark</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content-area">
+        <header class="portfolio-header card">
+            <img src="https://placehold.co/150x150/58a6ff/ffffff?text=Profile" alt="Profile Picture" class="profile-pic">
+            <h2 class="name">Your Name Here</h2>
+            <p class="tagline">A little description about me...</p>
+        </header>
+
+        <nav class="main-navigation card">
+            <a href="pages/education.html" class="nav-button btn-main btn-blue">Education</a>
+            <a href="pages/projects.html" class="nav-button btn-main btn-blue">Projects</a>
+            <a href="pages/certifications.html" class="nav-button btn-main btn-blue">Certifications</a>
+            <a href="pages/social_media.html" class="nav-button btn-main btn-blue">Social Media Handles</a>
+            <a href="pages/achievements.html" class="nav-button btn-main btn-blue">Achievements</a>
+        </nav>
+
+        <section class="about-me-section card">
+            <h2>About Me</h2>
+            <p>Welcome to my portfolio! I am a passionate individual with a strong interest in [Your Field/Skills]. This space is dedicated to showcasing my work, experiences, and achievements. Feel free to explore my projects, learn about my educational background, and connect with me on social media.</p>
+            <p>My journey in [Your Field] began with [brief origin story]. I thrive on [your passion/what drives you] and am constantly seeking new challenges and opportunities to grow. I believe in [your philosophy/values].</p>
+        </section>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        // --- Theme Toggle Logic (reused) ---
+        const applyTheme = (theme) => {
+            $('body').removeClass('dark-mode light-mode').addClass(theme);
+            localStorage.setItem('theme', theme);
+        };
+
+        $('#themeToggle').on('change', function() {
+            if ($(this).is(':checked')) {
+                applyTheme('dark-mode');
+            } else {
+                applyTheme('light-mode');
+            }
+        });
+
+        // Set initial theme based on localStorage or default to dark
+        if (localStorage.getItem('theme') === 'light-mode') {
+            $('#themeToggle').prop('checked', false);
+            applyTheme('light-mode');
+        } else {
+            $('#themeToggle').prop('checked', true);
+            applyTheme('dark-mode');
+        }
+    });
+</script>
+</body>
+</html>
