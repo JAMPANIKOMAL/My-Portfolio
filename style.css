@@ -334,6 +334,10 @@ body.light-mode .modal-header { border-color: var(--border-light); }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+    .container {
+        padding: 0 15px 15px 15px;
+    }
+    
     .top-bar {
         flex-direction: row;
         align-items: center;
@@ -343,45 +347,159 @@ body.light-mode .modal-header { border-color: var(--border-light); }
         margin-bottom: 20px;
     }
     
+    .logo-title {
+        flex-shrink: 0;
+    }
+    
     .logo-title h1 {
         font-size: 1.4rem;
     }
+    
     .header-controls {
         flex-shrink: 0;
         gap: 10px;
     }
     
-    .toggle-switch, .btn-header { 
-        flex-grow: 1; 
-        text-align: center; 
+    .toggle-switch {
+        flex-shrink: 0;
     }
+    
     .main-navigation {
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
+        padding: 15px;
     }
+    
     .nav-button {
         width: 100%;
-        max-width: unset; /* Remove max-width on small screens for full width */
+        max-width: unset;
+        padding: 12px 15px;
+        font-size: 1rem;
+        font-weight: 600;
     }
+    
+    .card {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .card h2 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    
     .portfolio-header {
-        padding-bottom: 20px;
+        padding-bottom: 15px;
     }
+    
     .profile-pic {
         width: 120px;
         height: 120px;
     }
+    
     .name {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
-    .tagline {
-        font-size: 1rem;
-    }
+    
     .about-me-section {
         font-size: 0.95rem;
+        line-height: 1.5;
     }
+    
+    /* Mobile-specific row layouts */
+    .education-row, .certification-row, .project-row, 
+    .social-handle-row, .achievement-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 15px;
+    }
+    
+    .edu-info, .cert-info, .project-info, 
+    .handle-info, .achievement-info {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .edu-info h3, .cert-info h3, .project-info h3,
+    .handle-info h3, .achievement-info h3 {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+    }
+    
+    .project-info .description, .achievement-info .description {
+        -webkit-line-clamp: 3;
+        margin-bottom: 8px;
+    }
+    
+    .duration-badge, .date-badge, .status-badge {
+        align-self: flex-end;
+        font-size: 0.85rem;
+        padding: 6px 10px;
+    }
+    
+    .btn-main {
+        width: 100%;
+        min-width: unset;
+        padding: 12px 15px;
+        font-size: 0.95rem;
+        text-align: center;
+    }
+    
     .modal-content {
-        width: 90%;
+        width: 95%;
         margin: 5% auto;
+        padding: 20px;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .modal-body {
+        font-size: 0.9rem;
+    }
+    
+    /* Show more button styles for mobile */
+    .show-more-btn {
+        display: block;
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px 10px 10px;
+    }
+    
+    .top-bar {
+        padding: 12px;
+    }
+    
+    .logo-title h1 {
+        font-size: 1.2rem;
+    }
+    
+    .card {
+        padding: 12px;
+    }
+    
+    .card h2 {
+        font-size: 1.3rem;
+    }
+    
+    .nav-button {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .name {
+        font-size: 1.6rem;
     }
 }
 

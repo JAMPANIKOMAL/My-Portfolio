@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>MyPortfolio - Education</title>
-    <link rel="stylesheet" href="../style.css"> <!-- Link to parent directory's style.css -->
+    <link rel="stylesheet" href="../style.css">
     <script src="../jquery-3.7.0.min.js"></script> 
     <style>
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -60,7 +60,7 @@
                     </div>
                     <span class="duration-badge">2020-2022 | 97.7%</span>
                 </div>
-                <div class="education-row">
+                <div class="education-row hidden-items" style="display: none;">
                     <div class="edu-info">
                         <h3>Class 10</h3>
                         <p class="institution">Montessori High School</p>
@@ -68,11 +68,24 @@
                     <span class="duration-badge">2019-2020 | 100%</span>
                 </div>
             </div>
+            <button class="show-more-btn btn-main btn-secondary" onclick="toggleItems('education')">Show More</button>
         </section>
     </div>
 </div>
 
 <script>
+    function toggleItems(type) {
+        const hiddenItems = document.querySelectorAll(`.${type}-row.hidden-items`);
+        const button = document.querySelector('.show-more-btn');
+        const isHidden = hiddenItems[0].style.display === 'none';
+        
+        hiddenItems.forEach(item => {
+            item.style.display = isHidden ? 'flex' : 'none';
+        });
+        
+        button.textContent = isHidden ? 'Show Less' : 'Show More';
+    }
+
     $(document).ready(function () {
         const applyTheme = (theme) => {
             $('body').removeClass('dark-mode light-mode').addClass(theme);

@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>MyPortfolio - Achievements</title>
-    <link rel="stylesheet" href="../style.css"> <!-- Link to parent directory's style.css -->
+    <link rel="stylesheet" href="../style.css">
     <script src="../jquery-3.7.0.min.js"></script> 
     <style>
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -53,12 +53,39 @@
                     </div>
                     <span class="date-badge">September 2024</span>
                 </div>
+                <div class="achievement-row hidden-items" style="display: none;">
+                    <div class="achievement-info">
+                        <h3>Cybersecurity Workshop</h3>
+                        <p class="description">Completed advanced cybersecurity workshop focusing on penetration testing and ethical hacking.</p>
+                    </div>
+                    <span class="date-badge">August 2024</span>
+                </div>
+                <div class="achievement-row hidden-items" style="display: none;">
+                    <div class="achievement-info">
+                        <h3>Academic Excellence</h3>
+                        <p class="description">Maintained consistent academic performance throughout the academic year.</p>
+                    </div>
+                    <span class="date-badge">July 2024</span>
+                </div>
             </div>
+            <button class="show-more-btn btn-main btn-secondary" onclick="toggleItems('achievement')">Show More</button>
         </section>
     </div>
 </div>
 
 <script>
+    function toggleItems(type) {
+        const hiddenItems = document.querySelectorAll(`.${type}-row.hidden-items`);
+        const button = document.querySelector('.show-more-btn');
+        const isHidden = hiddenItems[0].style.display === 'none';
+        
+        hiddenItems.forEach(item => {
+            item.style.display = isHidden ? 'flex' : 'none';
+        });
+        
+        button.textContent = isHidden ? 'Show Less' : 'Show More';
+    }
+
     $(document).ready(function () {
         const applyTheme = (theme) => {
             $('body').removeClass('dark-mode light-mode').addClass(theme);
