@@ -67,14 +67,14 @@
                     </div>
                     <a href="https://g.dev/jampanikomal" target="_blank" class="btn-main btn-blue">Visit Profile</a>
                 </div>
-                <div class="social-handle-row hidden-items" style="display: none;">
+                <div class="social-handle-row">
                     <div class="handle-info">
                         <h3>TryHackMe</h3>
                         <p class="platform">Cybersecurity Learning</p>
                     </div>
                     <a href="https://tryhackme.com/p/jampanikomal" target="_blank" class="btn-main btn-blue">Visit Profile</a>
                 </div>
-                <div class="social-handle-row hidden-items" style="display: none;">
+                <div class="social-handle-row">
                     <div class="handle-info">
                         <h3>HackerRank</h3>
                         <p class="platform">Coding Challenges</p>
@@ -82,24 +82,11 @@
                     <a href="https://hackerrank.com/jampanikomal" target="_blank" class="btn-main btn-blue">Visit Profile</a>
                 </div>
             </div>
-            <button class="show-more-btn btn-main btn-secondary" onclick="toggleItems('social-handle')">Show More</button>
         </section>
     </div>
 </div>
 
 <script>
-    function toggleItems(type) {
-        const hiddenItems = document.querySelectorAll(`.${type}-row.hidden-items`);
-        const button = document.querySelector('.show-more-btn');
-        const isHidden = hiddenItems[0].style.display === 'none';
-        
-        hiddenItems.forEach(item => {
-            item.style.display = isHidden ? 'flex' : 'none';
-        });
-        
-        button.textContent = isHidden ? 'Show Less' : 'Show More';
-    }
-
     $(document).ready(function () {
         const applyTheme = (theme) => {
             $('body').removeClass('dark-mode light-mode').addClass(theme);

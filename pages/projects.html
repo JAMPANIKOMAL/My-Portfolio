@@ -88,18 +88,6 @@
 </div>
 
 <script>
-    function toggleItems(type) {
-        const hiddenItems = document.querySelectorAll(`.${type}-row.hidden-items`);
-        const button = document.querySelector('.show-more-btn');
-        const isHidden = hiddenItems[0].style.display === 'none';
-        
-        hiddenItems.forEach(item => {
-            item.style.display = isHidden ? 'flex' : 'none';
-        });
-        
-        button.textContent = isHidden ? 'Show Less' : 'Show More';
-    }
-
     $(document).ready(function () {
         const applyTheme = (theme) => {
             $('body').removeClass('dark-mode light-mode').addClass(theme);
