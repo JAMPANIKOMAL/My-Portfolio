@@ -339,11 +339,16 @@ body.light-mode .modal-header { border-color: var(--border-light); }
     }
     
     .top-bar {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
         gap: 15px;
         padding: 15px;
         margin-bottom: 20px;
+    }
+    
+    .logo-title {
+        flex-shrink: 0;
     }
     
     .logo-title h1 {
@@ -351,14 +356,12 @@ body.light-mode .modal-header { border-color: var(--border-light); }
     }
     
     .header-controls {
-        width: 100%;
-        justify-content: space-between;
-        gap: 10px; 
+        flex-shrink: 0;
+        gap: 10px;
     }
     
-    .toggle-switch, .btn-header { 
-        flex-grow: 1; 
-        text-align: center; 
+    .toggle-switch {
+        flex-shrink: 0;
     }
     
     .main-navigation {
