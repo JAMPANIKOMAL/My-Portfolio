@@ -376,11 +376,13 @@ body.light-mode .modal-header { border-color: var(--border-light); }
         padding: 12px 15px;
         font-size: 1rem;
         font-weight: 600;
+        box-sizing: border-box;
     }
     
     .card {
         padding: 15px;
         margin-bottom: 15px;
+        box-sizing: border-box;
     }
     
     .card h2 {
@@ -413,6 +415,7 @@ body.light-mode .modal-header { border-color: var(--border-light); }
         align-items: flex-start;
         gap: 12px;
         padding: 15px;
+        box-sizing: border-box;
     }
     
     .edu-info, .cert-info, .project-info, 
@@ -427,7 +430,11 @@ body.light-mode .modal-header { border-color: var(--border-light); }
         margin-bottom: 8px;
     }
     
-    .project-info .description, .achievement-info .description {
+    .project-info .description {
+        margin-bottom: 8px;
+    }
+    
+    .achievement-info .description {
         -webkit-line-clamp: 3;
         margin-bottom: 8px;
     }
@@ -439,11 +446,25 @@ body.light-mode .modal-header { border-color: var(--border-light); }
     }
     
     .btn-main {
-        width: 100%;
+        width: calc(100% - 30px);
+        max-width: calc(100% - 30px);
         min-width: unset;
         padding: 12px 15px;
         font-size: 0.95rem;
         text-align: center;
+        box-sizing: border-box;
+        margin: 0 15px;
+    }
+    
+    /* Fix for buttons inside rows */
+    .education-row .btn-main,
+    .certification-row .btn-main,
+    .project-row .btn-main,
+    .social-handle-row .btn-main,
+    .achievement-row .btn-main {
+        width: 100%;
+        margin: 0;
+        align-self: stretch;
     }
     
     .modal-content {
@@ -458,12 +479,6 @@ body.light-mode .modal-header { border-color: var(--border-light); }
     
     .modal-body {
         font-size: 0.9rem;
-    }
-    
-    /* Show more button styles for mobile */
-    .show-more-btn {
-        display: block;
-        margin-top: 15px;
     }
 }
 
@@ -890,10 +905,6 @@ body.light-mode .show-more-btn:hover {
 
 /* Hide show more button on desktop */
 @media (min-width: 769px) {
-    .show-more-btn {
-        display: none !important;
-    }
-    
     .hidden-items {
         display: flex !important;
     }
@@ -901,7 +912,5 @@ body.light-mode .show-more-btn:hover {
 
 /* Show button only on mobile */
 @media (max-width: 768px) {
-    .show-more-btn {
-        display: block !important;
-    }
+    /* Remove show-more-btn styles */
 }
