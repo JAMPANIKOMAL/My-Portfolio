@@ -258,14 +258,16 @@ body.light-mode .tagline {
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
-    gap: 15px;
+    gap: 8px; /* Reduced gap */
     padding: 20px;
+    overflow-x: auto; /* Allow horizontal scroll if needed */
 }
 .nav-button {
-    flex-grow: 1;
-    max-width: 160px; /* Increased since we removed blog button */
-    padding: 12px 15px;
-    font-size: 1.05rem;
+    flex-shrink: 0; /* Prevent buttons from shrinking */
+    min-width: 120px; /* Reduced min-width */
+    padding: 10px 12px; /* Reduced padding */
+    font-size: 0.95rem; /* Slightly smaller font */
+    white-space: nowrap;
 }
 
 /* About Me Section */
@@ -356,6 +358,30 @@ body.light-mode .modal-header { border-color: var(--border-light); }
     .modal-content {
         width: 90%;
         margin: 5% auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-navigation {
+        gap: 5px; /* Even smaller gap on mobile */
+        padding: 15px 10px;
+    }
+    .nav-button {
+        min-width: 100px; /* Smaller buttons on mobile */
+        padding: 8px 10px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-navigation {
+        gap: 3px;
+        padding: 15px 5px;
+    }
+    .nav-button {
+        min-width: 80px;
+        padding: 8px 6px;
+        font-size: 0.8rem;
     }
 }
 
