@@ -852,3 +852,46 @@ body.light-mode .achievement-info .description {
     font-weight: 500;
     white-space: nowrap;
 }
+
+/* Show More/Less Button Styles */
+.show-more-btn {
+    width: 100%;
+    margin-top: 15px;
+    background-color: var(--card-dark);
+    color: var(--text-muted-dark);
+    border: 1px solid var(--border-dark);
+}
+
+body.light-mode .show-more-btn {
+    background-color: var(--card-light);
+    color: var(--text-muted-light);
+    border-color: var(--border-light);
+}
+
+.show-more-btn:hover {
+    background-color: var(--border-dark);
+    color: var(--text-dark);
+}
+
+body.light-mode .show-more-btn:hover {
+    background-color: var(--border-light);
+    color: var(--text-light);
+}
+
+/* Hide show more button on desktop */
+@media (min-width: 769px) {
+    .show-more-btn {
+        display: none !important;
+    }
+    
+    .hidden-items {
+        display: flex !important;
+    }
+}
+
+/* Show button only on mobile */
+@media (max-width: 768px) {
+    .show-more-btn {
+        display: block;
+    }
+}

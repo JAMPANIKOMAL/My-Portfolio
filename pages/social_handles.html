@@ -65,70 +65,41 @@
                         <h3>Google Developers</h3>
                         <p class="platform">Developer Profile</p>
                     </div>
-                    <a href="https://developers.google.com/profile/u/JAMPANIKOMAL?hl=en&utm_source=codelabs.developers.google.com" target="_blank" class="btn-main btn-blue">Visit Profile</a>
+                    <a href="https://g.dev/jampanikomal" target="_blank" class="btn-main btn-blue">Visit Profile</a>
                 </div>
-                <div class="social-handle-row">
-                    <div class="handle-info">
-                        <h3>Google Cloud Skills Boost</h3>
-                        <p class="platform">Cloud Learning Platform</p>
-                    </div>
-                    <a href="https://www.cloudskillsboost.google/public_profiles/f8bfc8b5-fa9f-4de3-8be8-ee0dd0817420" target="_blank" class="btn-main btn-blue">Visit Profile</a>
-                </div>
-                <div class="social-handle-row">
-                    <div class="handle-info">
-                        <h3>Google for Developers</h3>
-                        <p class="platform">Developer Showcase</p>
-                    </div>
-                    <a href="https://g.dev/JAMPANIKOMAL" target="_blank" class="btn-main btn-blue">Visit Profile</a>
-                </div>
-                <div class="social-handle-row">
+                <div class="social-handle-row hidden-items" style="display: none;">
                     <div class="handle-info">
                         <h3>TryHackMe</h3>
                         <p class="platform">Cybersecurity Learning</p>
                     </div>
-                    <a href="https://tryhackme.com/p/JAMPANIKOMAL" target="_blank" class="btn-main btn-blue">Visit Profile</a>
+                    <a href="https://tryhackme.com/p/jampanikomal" target="_blank" class="btn-main btn-blue">Visit Profile</a>
                 </div>
-                <div class="social-handle-row">
+                <div class="social-handle-row hidden-items" style="display: none;">
                     <div class="handle-info">
-                        <h3>Medium</h3>
-                        <p class="platform">Technical Writing</p>
+                        <h3>HackerRank</h3>
+                        <p class="platform">Coding Challenges</p>
                     </div>
-                    <a href="https://jampanikomal.medium.com/" target="_blank" class="btn-main btn-blue">Visit Profile</a>
-                </div>
-                <div class="social-handle-row">
-                    <div class="handle-info">
-                        <h3>Stack Overflow</h3>
-                        <p class="platform">Developer Community</p>
-                    </div>
-                    <a href="https://stackoverflow.com/users/23472872/jampanikomal" target="_blank" class="btn-main btn-blue">Visit Profile</a>
-                </div>
-                <div class="social-handle-row">
-                    <div class="handle-info">
-                        <h3>Twitter</h3>
-                        <p class="platform">Social Media</p>
-                    </div>
-                    <a href="https://twitter.com/jampani_komal" target="_blank" class="btn-main btn-blue">Visit Profile</a>
-                </div>
-                <div class="social-handle-row">
-                    <div class="handle-info">
-                        <h3>Facebook</h3>
-                        <p class="platform">Social Media</p>
-                    </div>
-                    <a href="https://www.facebook.com/jampanikomal" target="_blank" class="btn-main btn-blue">Visit Profile</a>
-                </div>
-                <div class="social-handle-row">
-                    <div class="handle-info">
-                        <h3>Discord</h3>
-                        <p class="platform">Community Platform</p>
-                    </div>
-                    <a href="https://discordapp.com/users/jampanikomal" target="_blank" class="btn-main btn-blue">Visit Profile</a>
+                    <a href="https://hackerrank.com/jampanikomal" target="_blank" class="btn-main btn-blue">Visit Profile</a>
                 </div>
             </div>
+            <button class="show-more-btn btn-main btn-secondary" onclick="toggleItems('social')">Show More</button>
         </section>
     </div>
 </div>
 
 <script>
+    function toggleItems(type) {
+        const hiddenItems = document.querySelectorAll(`.${type}-handle-row.hidden-items`);
+        const button = document.querySelector('.show-more-btn');
+        const isHidden = hiddenItems[0].style.display === 'none';
+        
+        hiddenItems.forEach(item => {
+            item.style.display = isHidden ? 'flex' : 'none';
+        });
+        
+        button.textContent = isHidden ? 'Show Less' : 'Show More';
+    }
+
     $(document).ready(function () {
         const applyTheme = (theme) => {
             $('body').removeClass('dark-mode light-mode').addClass(theme);

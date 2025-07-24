@@ -44,49 +44,62 @@
         </nav>
 
         <section class="certifications-section card">
-            <h2>Certifications</h2>
+            <h2>My Certifications</h2>
             <div class="certification-list">
                 <div class="certification-row">
                     <div class="cert-info">
                         <h3>TryHackMe Jr Penetration Tester Certificate</h3>
                         <p class="issuer">TryHackMe</p>
                     </div>
-                    <a href="../assets/certificates/THM-3WQICTZZOQ.pdf" target="_blank" class="btn-main btn-blue">View Certificate</a>
+                    <a href="assets/certificates/tryhackme-jr-pen-tester.pdf" target="_blank" class="btn-main btn-blue">View Certificate</a>
                 </div>
                 <div class="certification-row">
                     <div class="cert-info">
                         <h3>TryHackMe Introduction to Cyber Security</h3>
                         <p class="issuer">TryHackMe</p>
                     </div>
-                    <a href="../assets/certificates/THM-LH9MGMES2Y.pdf" target="_blank" class="btn-main btn-blue">View Certificate</a>
+                    <a href="assets/certificates/tryhackme-intro-cyber.pdf" target="_blank" class="btn-main btn-blue">View Certificate</a>
                 </div>
                 <div class="certification-row">
                     <div class="cert-info">
                         <h3>TryHackMe Pre Security</h3>
                         <p class="issuer">TryHackMe</p>
                     </div>
-                    <a href="../assets/certificates/THM-GIF2SOPDYZ.pdf" target="_blank" class="btn-main btn-blue">View Certificate</a>
+                    <a href="assets/certificates/tryhackme-pre-security.pdf" target="_blank" class="btn-main btn-blue">View Certificate</a>
                 </div>
-                <div class="certification-row">
+                <div class="certification-row hidden-items" style="display: none;">
                     <div class="cert-info">
-                        <h3>Google Cybersecurity Specialization</h3>
+                        <h3>Google Cybersecurity Certificate</h3>
                         <p class="issuer">Google</p>
                     </div>
-                    <a href="../assets/certificates/Coursera P4T64A38E2F2.pdf" target="_blank" class="btn-main btn-blue">View Certificate</a>
+                    <a href="assets/certificates/google-cybersecurity.pdf" target="_blank" class="btn-main btn-blue">View Certificate</a>
                 </div>
-                <div class="certification-row">
+                <div class="certification-row hidden-items" style="display: none;">
                     <div class="cert-info">
-                        <h3>Cybersecurity: Cloud Security NOW!</h3>
+                        <h3>EC-Council Computer Hacking Forensic Investigator Associate (CHFIA)</h3>
                         <p class="issuer">EC-Council</p>
                     </div>
-                    <a href="../assets/certificates/d7fd9c1a-8e0e-48f0-9b42-586dd1ed4b49.png" target="_blank" class="btn-main btn-blue">View Certificate</a>
+                    <a href="assets/certificates/ec-council-chfia.pdf" target="_blank" class="btn-main btn-blue">View Certificate</a>
                 </div>
             </div>
+            <button class="show-more-btn btn-main btn-secondary" onclick="toggleItems('certification')">Show More</button>
         </section>
     </div>
 </div>
 
 <script>
+    function toggleItems(type) {
+        const hiddenItems = document.querySelectorAll(`.${type}-row.hidden-items`);
+        const button = document.querySelector('.show-more-btn');
+        const isHidden = hiddenItems[0].style.display === 'none';
+        
+        hiddenItems.forEach(item => {
+            item.style.display = isHidden ? 'flex' : 'none';
+        });
+        
+        button.textContent = isHidden ? 'Show Less' : 'Show More';
+    }
+
     $(document).ready(function () {
         const applyTheme = (theme) => {
             $('body').removeClass('dark-mode light-mode').addClass(theme);

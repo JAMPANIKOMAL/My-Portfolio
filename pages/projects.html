@@ -67,14 +67,14 @@
                     </div>
                     <a href="https://github.com/JAMPANIKOMAL/Password-Strength-Checker" target="_blank" class="btn-main btn-blue">GitHub Repository</a>
                 </div>
-                <div class="project-row">
+                <div class="project-row hidden-items" style="display: none;">
                     <div class="project-info">
                         <h3>RRUG Navigator</h3>
                         <p class="description">A university navigator mobile application designed to help students and visitors navigate the campus efficiently.</p>
                     </div>
                     <a href="https://github.com/JAMPANIKOMAL/RRUG-Navigator" target="_blank" class="btn-main btn-blue">GitHub Repository</a>
                 </div>
-                <div class="project-row">
+                <div class="project-row hidden-items" style="display: none;">
                     <div class="project-info">
                         <h3>SiRa</h3>
                         <p class="description">A healthcare application designed to streamline healthcare processes and improve patient care management systems.</p>
@@ -82,11 +82,24 @@
                     <a href="https://github.com/JAMPANIKOMAL/SiRa" target="_blank" class="btn-main btn-blue">GitHub Repository</a>
                 </div>
             </div>
+            <button class="show-more-btn btn-main btn-secondary" onclick="toggleItems('project')">Show More</button>
         </section>
     </div>
 </div>
 
 <script>
+    function toggleItems(type) {
+        const hiddenItems = document.querySelectorAll(`.${type}-row.hidden-items`);
+        const button = document.querySelector('.show-more-btn');
+        const isHidden = hiddenItems[0].style.display === 'none';
+        
+        hiddenItems.forEach(item => {
+            item.style.display = isHidden ? 'flex' : 'none';
+        });
+        
+        button.textContent = isHidden ? 'Show Less' : 'Show More';
+    }
+
     $(document).ready(function () {
         const applyTheme = (theme) => {
             $('body').removeClass('dark-mode light-mode').addClass(theme);
