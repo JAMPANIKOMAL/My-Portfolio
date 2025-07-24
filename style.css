@@ -344,6 +344,136 @@ body.light-mode .modal-header { border-color: var(--border-light); }
 .modal-body li { margin-bottom: 5px; }
 
 
+/* === List Styles === */
+.certification-list, .education-list, .achievement-list, .social-handle-list, .project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.certification-row, .education-row, .achievement-row, .social-handle-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--card-dark);
+    border: 1px solid var(--border-dark);
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+body.light-mode .certification-row,
+body.light-mode .education-row,
+body.light-mode .achievement-row,
+body.light-mode .social-handle-row {
+    background: var(--card-light);
+    border-color: var(--border-light);
+}
+
+.certification-row:hover,
+.education-row:hover,
+.achievement-row:hover,
+.social-handle-row:hover {
+    transform: translateY(-2px);
+}
+
+.cert-info, .edu-info, .achievement-info, .handle-info {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.cert-info h3, .edu-info h3, .achievement-info h3, .handle-info h3 {
+    color: var(--primary);
+    margin: 0 0 8px 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.cert-info .issuer, .edu-info .institution, .handle-info .platform {
+    color: var(--text-muted-dark);
+    font-style: italic;
+    margin: 0 0 8px 0;
+    font-size: 1rem;
+}
+
+body.light-mode .cert-info .issuer,
+body.light-mode .edu-info .institution,
+body.light-mode .handle-info .platform {
+    color: var(--text-muted-light);
+}
+
+.edu-info .details, .achievement-info .description {
+    color: var(--text-muted-dark);
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+body.light-mode .edu-info .details,
+body.light-mode .achievement-info .description {
+    color: var(--text-muted-light);
+}
+
+.duration-badge, .date-badge {
+    background: var(--primary);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Project Cards */
+.project-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--card-dark);
+    border: 1px solid var(--border-dark);
+    padding: 25px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    gap: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .project-card {
+    background: var(--card-light);
+    border-color: var(--border-light);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(88, 166, 255, 0.15);
+}
+
+.project-info {
+    flex-grow: 1;
+    text-align: left;
+    max-width: calc(100% - 200px);
+}
+
+.project-info h3 {
+    color: var(--primary);
+    margin: 0 0 12px 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.project-info .description {
+    color: var(--text-muted-dark);
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+body.light-mode .project-info .description {
+    color: var(--text-muted-light);
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .container {
@@ -390,6 +520,47 @@ body.light-mode .modal-header { border-color: var(--border-light); }
         font-weight: 600;
         box-sizing: border-box;
     }
+
+    /* Hide navigation buttons after the first 3 */
+    .nav-button:nth-child(n+4) {
+        display: none;
+    }
+
+    .nav-button:nth-child(n+4).show {
+        display: block;
+    }
+
+    .nav-show-more-btn {
+        width: 100%;
+        margin-top: 10px;
+        background-color: var(--card-dark);
+        color: var(--text-muted-dark);
+        border: 1px solid var(--border-dark);
+        padding: 12px 15px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    body.light-mode .nav-show-more-btn {
+        background-color: var(--card-light);
+        color: var(--text-muted-light);
+        border-color: var(--border-light);
+    }
+
+    .nav-show-more-btn:hover {
+        background-color: var(--border-dark);
+        color: var(--text-dark);
+    }
+
+    body.light-mode .nav-show-more-btn:hover {
+        background-color: var(--border-light);
+        color: var(--text-light);
+    }
     
     .card {
         padding: 15px;
@@ -421,7 +592,7 @@ body.light-mode .modal-header { border-color: var(--border-light); }
     }
     
     /* Mobile-specific row layouts */
-    .education-row, .certification-row, .project-row, 
+    .education-row, .certification-row, .project-card, 
     .social-handle-row, .achievement-row {
         flex-direction: column;
         align-items: flex-start;
@@ -447,33 +618,16 @@ body.light-mode .modal-header { border-color: var(--border-light); }
     }
     
     .achievement-info .description {
-        -webkit-line-clamp: 3;
         margin-bottom: 8px;
     }
     
-    .duration-badge, .date-badge, .status-badge {
+    .duration-badge, .date-badge {
         align-self: flex-end;
         font-size: 0.85rem;
         padding: 6px 10px;
     }
     
     .btn-main {
-        width: calc(100% - 30px);
-        max-width: calc(100% - 30px);
-        min-width: unset;
-        padding: 12px 15px;
-        font-size: 0.95rem;
-        text-align: center;
-        box-sizing: border-box;
-        margin: 0 15px;
-    }
-    
-    /* Fix for buttons inside rows */
-    .education-row .btn-main,
-    .certification-row .btn-main,
-    .project-row .btn-main,
-    .social-handle-row .btn-main,
-    .achievement-row .btn-main {
         width: 100%;
         margin: 0;
         align-self: stretch;
@@ -531,14 +685,14 @@ body.light-mode .modal-header { border-color: var(--border-light); }
 }
 
 /* === Certification List Styles === */
-.certification-list {
+.certification-list, .education-list, .achievement-list, .social-handle-list, .project-list {
     display: flex;
     flex-direction: column;
     gap: 15px;
     margin-top: 20px;
 }
 
-.certification-row {
+.certification-row, .education-row, .achievement-row, .social-handle-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -549,48 +703,69 @@ body.light-mode .modal-header { border-color: var(--border-light); }
     transition: transform 0.3s ease;
 }
 
-body.light-mode .certification-row {
+body.light-mode .certification-row,
+body.light-mode .education-row,
+body.light-mode .achievement-row,
+body.light-mode .social-handle-row {
     background: var(--card-light);
     border-color: var(--border-light);
 }
 
-.certification-row:hover {
+.certification-row:hover,
+.education-row:hover,
+.achievement-row:hover,
+.social-handle-row:hover {
     transform: translateY(-2px);
 }
 
-.cert-info {
+.cert-info, .edu-info, .achievement-info, .handle-info {
     flex-grow: 1;
     text-align: left;
 }
 
-.cert-info h3 {
+.cert-info h3, .edu-info h3, .achievement-info h3, .handle-info h3 {
     color: var(--primary);
-    margin: 0 0 5px 0;
+    margin: 0 0 8px 0;
     font-size: 1.2rem;
+    font-weight: 600;
 }
 
-.cert-info .issuer {
+.cert-info .issuer, .edu-info .institution, .handle-info .platform {
     color: var(--text-muted-dark);
     font-style: italic;
-    margin: 0;
-    font-size: 0.9rem;
+    margin: 0 0 8px 0;
+    font-size: 1rem;
 }
 
-body.light-mode .cert-info .issuer {
+body.light-mode .cert-info .issuer,
+body.light-mode .edu-info .institution,
+body.light-mode .handle-info .platform {
     color: var(--text-muted-light);
 }
 
-/* === Project List Styles === */
-.project-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 20px;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+.edu-info .details, .achievement-info .description {
+    color: var(--text-muted-dark);
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
+body.light-mode .edu-info .details,
+body.light-mode .achievement-info .description {
+    color: var(--text-muted-light);
+}
+
+.duration-badge, .date-badge {
+    background: var(--primary);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Project Cards */
 .project-card {
     display: flex;
     justify-content: space-between;
@@ -998,3 +1173,4 @@ body.light-mode .edu-info .institution,
 body.light-mode .handle-info .platform {
     color: var(--text-muted-light);
 }
+

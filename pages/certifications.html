@@ -41,6 +41,7 @@
             <span class="nav-button btn-main btn-blue current-page">Certifications</span>
             <a href="social_handles.html" class="nav-button btn-main btn-blue">Social Handles</a>
             <a href="achievements.html" class="nav-button btn-main btn-blue">Achievements</a>
+            <button class="nav-show-more-btn" id="navShowMoreBtn">Show More</button>
         </nav>
 
         <section class="certifications-section card">
@@ -108,6 +109,20 @@
             $('#themeToggle').prop('checked', true);
             applyTheme('dark-mode');
         }
+
+        // Navigation Show More/Less functionality
+        $('#navShowMoreBtn').on('click', function() {
+            const hiddenButtons = $('.nav-button:nth-child(n+4)');
+            const isExpanded = hiddenButtons.hasClass('show');
+            
+            if (isExpanded) {
+                hiddenButtons.removeClass('show');
+                $(this).text('Show More');
+            } else {
+                hiddenButtons.addClass('show');
+                $(this).text('Show Less');
+            }
+        });
     });
 </script>
 </body>
