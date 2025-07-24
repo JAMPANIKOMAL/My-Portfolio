@@ -255,19 +255,61 @@ body.light-mode .tagline {
 
 /* Main Navigation */
 .main-navigation {
-    display: flex;
-    flex-wrap: nowrap;
+    display: flex !important;
+    flex-wrap: nowrap !important;
     justify-content: center;
-    gap: 8px; /* Reduced gap */
-    padding: 20px;
-    overflow-x: auto; /* Allow horizontal scroll if needed */
+    gap: 4px;
+    padding: 15px 5px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
+
+.main-navigation::-webkit-scrollbar {
+    display: none;
+}
+
 .nav-button {
-    flex-shrink: 0; /* Prevent buttons from shrinking */
-    min-width: 120px; /* Reduced min-width */
-    padding: 10px 12px; /* Reduced padding */
-    font-size: 0.95rem; /* Slightly smaller font */
+    flex: 0 0 auto !important;
+    flex-shrink: 0 !important;
+    min-width: 90px !important;
+    max-width: 110px;
+    padding: 8px 6px !important;
+    font-size: 0.8rem !important;
     white-space: nowrap;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Responsive navigation adjustments */
+@media (max-width: 1200px) {
+    .nav-button {
+        min-width: 85px !important;
+        padding: 8px 5px !important;
+        font-size: 0.75rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-navigation {
+        gap: 2px;
+        padding: 15px 2px;
+    }
+    .nav-button {
+        min-width: 75px !important;
+        padding: 6px 4px !important;
+        font-size: 0.7rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-button {
+        min-width: 65px !important;
+        padding: 6px 3px !important;
+        font-size: 0.65rem !important;
+    }
 }
 
 /* About Me Section */
