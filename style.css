@@ -693,15 +693,15 @@ body.light-mode .achievement-item .date {
     color: white;
 }
 
-/* === Social Handles List Styles === */
-.social-handles-list {
+/* === Social Media List Styles === */
+.social-media-list {
     display: flex;
     flex-direction: column;
     gap: 15px;
     margin-top: 20px;
 }
 
-.social-handle-row {
+.social-media-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -712,34 +712,34 @@ body.light-mode .achievement-item .date {
     transition: transform 0.3s ease;
 }
 
-body.light-mode .social-handle-row {
+body.light-mode .social-media-row {
     background: var(--card-light);
     border-color: var(--border-light);
 }
 
-.social-handle-row:hover {
+.social-media-row:hover {
     transform: translateY(-2px);
 }
 
-.handle-info {
+.social-info {
     flex-grow: 1;
     text-align: left;
 }
 
-.handle-info h3 {
+.social-info h3 {
     color: var(--primary);
     margin: 0 0 5px 0;
     font-size: 1.2rem;
 }
 
-.handle-info .platform {
+.social-info .platform {
     color: var(--text-muted-dark);
     font-style: italic;
     margin: 0;
     font-size: 0.9rem;
 }
 
-body.light-mode .handle-info .platform {
+body.light-mode .social-info .platform {
     color: var(--text-muted-light);
 }
 
@@ -869,6 +869,7 @@ body.light-mode .achievement-info .description {
     background-color: var(--card-dark);
     color: var(--text-muted-dark);
     border: 1px solid var(--border-dark);
+    display: none;
 }
 
 body.light-mode .show-more-btn {
@@ -901,6 +902,6 @@ body.light-mode .show-more-btn:hover {
 /* Show button only on mobile */
 @media (max-width: 768px) {
     .show-more-btn {
-        display: block;
+        display: block !important;
     }
 }
