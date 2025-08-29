@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Compromise NLP for smarter keyword extraction -->
+    <script src="https://unpkg.com/compromise@13.11.3/builds/compromise.min.js"></script>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Projects - Jampani Komal | Cybersecurity & Development Portfolio</title>
@@ -150,6 +152,7 @@
 
         <section class="projects-section card">
             <h2>My Projects</h2>
+            <div class="filter-bar" id="filter-bar" style="margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap;"></div>
             <div class="project-list" id="project-list">
                 <!-- GitHub projects will be dynamically inserted here -->
             </div>
@@ -199,7 +202,92 @@
         });
 
 
-        // --- GitHub Projects Fetching ---
+        // --- Dynamic Category Extraction ---
+        const CATEGORY_KEYWORDS = [
+            'ai', 'cyber', 'web', 'software', 'security', 'tool', 'app', 'mobile', 'api', 'automation', 'cloud', 'network', 'python', 'javascript', 'frontend', 'backend', 'fullstack', 'machine learning', 'ml', 'deep learning', 'dl', 'devops', 'blockchain', 'crypto', 'health', 'education', 'game', 'utility', 'dashboard', 'visualization', 'iot', 'linux', 'windows', 'android', 'ios', 'cli', 'gui', 'extension', 'plugin', 'library', 'framework', 'demo', 'personal'
+        ];
+
+        let allProjects = [];
+        let allCategories = new Set();
+
+        // Rule-based categorization into ai, software, web, cyber, app
+        function extractCategories(description) {
+            if (!description) return ['software'];
+            const desc = description.toLowerCase();
+            const categoryRules = {
+                ai: [
+                    'ai', 'artificial intelligence', 'machine learning', 'ml', 'deep learning', 'dl', 'neural network', 'predict', 'recommendation', 'classification', 'detection', 'recognition'
+                ],
+                software: [
+                    'software', 'tool', 'utility', 'application', 'program', 'automation', 'script', 'platform', 'system', 'solution', 'suite', 'package'
+                ],
+                web: [
+                    'web', 'website', 'browser', 'frontend', 'backend', 'fullstack', 'html', 'css', 'javascript', 'react', 'vue', 'angular', 'webapp', 'web app', 'web application', 'site', 'online', 'internet'
+                ],
+                cyber: [
+                    'cyber', 'security', 'infosec', 'ctf', 'siem', 'encryption', 'decryption', 'cipher', 'vulnerability', 'threat', 'malware', 'phishing', 'forensics', 'pentest', 'penetration', 'firewall', 'incident', 'password', 'auth', 'cryptography', 'secure', 'attack', 'defense'
+                ],
+                app: [
+                    'app', 'application', 'mobile', 'android', 'ios', 'iphone', 'ipad', 'tablet', 'phone', 'play store', 'app store', 'apk', 'flutter', 'react native', 'native app', 'mobile app', 'mobile application'
+                ]
+            };
+            const found = new Set();
+            for (const [cat, keywords] of Object.entries(categoryRules)) {
+                for (const kw of keywords) {
+                    if (desc.includes(kw)) {
+                        found.add(cat);
+                        break;
+                    }
+                }
+            }
+            // Always include 'software' if nothing else matches
+            if (found.size === 0) found.add('software');
+            return Array.from(found);
+        }
+
+        function renderFilterBar() {
+            const filterBar = document.getElementById('filter-bar');
+            filterBar.innerHTML = '';
+            // Only show these categories in the UI
+            const VISIBLE_CATEGORIES = ['ai', 'software', 'app', 'web', 'cyber'];
+            // Always show 'All' first
+            const allBtn = document.createElement('button');
+            allBtn.className = 'filter-btn btn-main btn-blue active';
+            allBtn.setAttribute('data-filter', 'all');
+            allBtn.textContent = 'All';
+            filterBar.appendChild(allBtn);
+            VISIBLE_CATEGORIES.forEach(cat => {
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn btn-main btn-blue';
+                btn.setAttribute('data-filter', cat);
+                btn.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
+                filterBar.appendChild(btn);
+            });
+        }
+
+        function renderProjects(filter) {
+            const projectList = document.getElementById('project-list');
+            projectList.innerHTML = '';
+            let shown = 0;
+            // Only match these 5 categories
+            const VISIBLE_CATEGORIES = ['ai', 'software', 'app', 'web', 'cyber'];
+            allProjects.forEach(project => {
+                if (filter === 'all') {
+                    // Show only projects that have at least one of the 5 categories
+                    if (project.categories && project.categories.some(cat => VISIBLE_CATEGORIES.includes(cat))) {
+                        projectList.appendChild(project.card);
+                        shown++;
+                    }
+                } else if (project.categories && project.categories.includes(filter)) {
+                    projectList.appendChild(project.card);
+                    shown++;
+                }
+            });
+            if (shown === 0) {
+                projectList.innerHTML = '<p>No projects found for this category.</p>';
+            }
+        }
+
         const fetchGitHubProjects = async () => {
             const projectList = document.getElementById('project-list');
             projectList.innerHTML = '<p>Loading projects from GitHub...</p>';
@@ -211,7 +299,9 @@
                 }
                 const repos = await response.json();
 
-                projectList.innerHTML = ''; // Clear loading message
+                allProjects = [];
+                allCategories = new Set();
+                projectList.innerHTML = '';
 
                 if (repos.length === 0) {
                     projectList.innerHTML = '<p>No public projects found on GitHub.</p>';
@@ -219,13 +309,12 @@
                 }
 
                 repos.forEach(repo => {
-                    if (repo.fork) return; // Skip forked repositories
-
+                    if (repo.fork) return;
                     const projectCard = document.createElement('div');
                     projectCard.className = 'project-card';
-                    
                     const description = repo.description || 'No description provided.';
-                    
+                    const categories = extractCategories(description);
+                    categories.forEach(cat => allCategories.add(cat));
                     projectCard.innerHTML = `
                         <div class="project-info">
                             <h3>${repo.name}</h3>
@@ -233,14 +322,27 @@
                         </div>
                         <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="btn-main btn-blue">View on GitHub</a>
                     `;
-                    projectList.appendChild(projectCard);
+                    allProjects.push({ card: projectCard, categories });
                 });
+
+                renderFilterBar();
+                renderProjects('all');
 
             } catch (error) {
                 console.error('Failed to fetch GitHub projects:', error);
-                projectList.innerHTML = `<p style="color: var(--red);">Failed to load projects. Please try again later.</p>`;
+                projectList.innerHTML = `<p style=\"color: var(--red);\">Failed to load projects. Please try again later.</p>`;
             }
         };
+
+        // --- Filter Bar Event Handling ---
+        document.getElementById('filter-bar').addEventListener('click', (e) => {
+            if (e.target.classList.contains('filter-btn')) {
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                e.target.classList.add('active');
+                const filter = e.target.getAttribute('data-filter');
+                renderProjects(filter);
+            }
+        });
 
         // --- Initialize ---
         fetchGitHubProjects();
