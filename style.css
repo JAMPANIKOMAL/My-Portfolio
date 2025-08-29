@@ -1,3 +1,9 @@
+/* Hide Download Resume button on mobile */
+@media (max-width: 768px) {
+    .btn-download-resume {
+        display: none !important;
+    }
+}
 /* === Root Theme Variables === */
 :root {
     --bg-dark: #0d1117;
