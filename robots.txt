@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://jampanikomal.github.io/My-Portfolio/sitemap.xml
+
+# Allow all search engines to crawl the portfolio
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Crawl delay to be respectful
+Crawl-delay: 1
